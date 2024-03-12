@@ -12,7 +12,7 @@ model = pickle.load(open('wine_svm_classification.pkl', 'rb'))
 def Home():
     return render_template('index.html')
 
-@flask_app.route('/predict', methods = ['POST'])
+@flask_app.route('/predict', methods=['POST'])
 def predict():
     # Get form values
     fixed_acidity = float(request.form['fixed_acidity'])
