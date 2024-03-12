@@ -1,5 +1,5 @@
-import matplotlib.pyplot as plt
-import numpy as np
+import pickle
+
 import pandas as pd
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 from sklearn.model_selection import train_test_split
@@ -7,6 +7,10 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import StandardScaler
 
 df = pd.read_csv('wine.csv')
+
+df.head()
+df.info()
+
 df.dropna(inplace=True)
 df.drop_duplicates(inplace=True)
 
@@ -33,3 +37,6 @@ classification_rep = classification_report(y_test, y_pred)
 print("Accuracy:", accuracy)
 print("\nConfusion Matrix:\n", conf_matrix)
 print("\nClassification Report:\n", classification_rep)
+
+with open ('wine_knn_classification.pkl', 'wb') as file:
+    pickle.dump(knn_classifier, file)
