@@ -6,7 +6,9 @@ from flask import Flask, render_template, request
 
 # Create flask app
 flask_app = Flask(__name__)
-model = pickle.load(open('wine_svm_classification.pkl', 'rb'))
+
+# Specify the model to be used
+model = pickle.load(open('wine_svm_model.pkl', 'rb'))
 
 @flask_app.route('/')
 def Home():
